@@ -1,12 +1,13 @@
 import React from 'react';
+import './reviewItem.css';
 
 const ReviewItem = (props) => {
-  console.log(props);
   const { name, quantity } = props.product;
   return (
-    <div>
+    <div className="review-item">
       <h4 className="product-name">{name}</h4>
       <p>Quantity : {quantity}</p>
+      <button className="main-button">Remove</button>
     </div>
   );
 };
