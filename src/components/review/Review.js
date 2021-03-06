@@ -5,6 +5,7 @@ import {
 } from '../../utilities/databaseManager';
 import fakeData from '../../fakeData';
 import ReviewItem from '../reviewItem/ReviewItem';
+import Cart from '../Cart/Cart';
 
 const Review = () => {
   const [cart, setCart] = useState([]);
@@ -29,15 +30,19 @@ const Review = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Cart Items : {cart.length}</h1>
-      {cart.map((pd) => (
-        <ReviewItem
-          key={pd.key}
-          product={pd}
-          removeProduct={removeProduct}
-        ></ReviewItem>
-      ))}
+    <div className="twin-container">
+      <div className="product-container">
+        {cart.map((pd) => (
+          <ReviewItem
+            key={pd.key}
+            product={pd}
+            removeProduct={removeProduct}
+          ></ReviewItem>
+        ))}
+      </div>
+      <div className="cart-container">
+        <Cart cart={cart}></Cart>
+      </div>
     </div>
   );
 };
