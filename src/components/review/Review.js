@@ -7,7 +7,6 @@ const Review = () => {
   const [cart, setCart] = useState([]);
 
   const removeProduct = (productkey) => {
-    console.log('remove clicked', productkey);
     const newCart = cart.filter((pd) => pd.key !== productkey);
     setCart(newCart);
   };
