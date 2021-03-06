@@ -6,6 +6,12 @@ import ReviewItem from '../reviewItem/ReviewItem';
 const Review = () => {
   const [cart, setCart] = useState([]);
 
+  const removeProduct = (productkey) => {
+    console.log('remove clicked', productkey);
+    const newCart = cart.filter((pd) => pd.key !== productkey);
+    setCart(newCart);
+  };
+
   useEffect(() => {
     // cart data
     const saveCart = getDatabaseCart();
@@ -23,7 +29,11 @@ const Review = () => {
     <div>
       <h1>Cart Items : {cart.length}</h1>
       {cart.map((pd) => (
-        <ReviewItem key={pd.key} product={pd}></ReviewItem>
+        <ReviewItem
+          key={pd.key}
+          product={pd}
+          removeProduct={removeProduct}
+        ></ReviewItem>
       ))}
     </div>
   );
