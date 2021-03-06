@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { getDatabaseCart } from '../../utilities/databaseManager';
+import {
+  getDatabaseCart,
+  removeFromDatabaseCart,
+} from '../../utilities/databaseManager';
 import fakeData from '../../fakeData';
 import ReviewItem from '../reviewItem/ReviewItem';
 
@@ -9,6 +12,7 @@ const Review = () => {
   const removeProduct = (productkey) => {
     const newCart = cart.filter((pd) => pd.key !== productkey);
     setCart(newCart);
+    removeFromDatabaseCart(productkey);
   };
 
   useEffect(() => {
