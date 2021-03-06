@@ -15,9 +15,7 @@ const Review = () => {
       product.quantity = saveCart[key];
       return product;
     });
-    // console.log(productKeys);
-    // console.log(saveCart);
-    // console.log(cartProducts);
+
     setCart(cartProducts);
   }, []);
 
